@@ -1,19 +1,15 @@
-# Repository-Name
-(Introduction, a bit bigger than description)
+# FileSharer
+A simple NodeJS server to get files from devices in the same network.
 
 <br>
 
 ## Getting Started
-(How to install, additional downloads)
 * Clone this repository
-* `cd Repository-Name`
+* `cd FileSharer`
+* Execute `npm install`
 
 <br>
 
 ## How to Use
-
-
-<br>
-
-## Example Output
-(Images/Videos)
+* Execute `npm start`
+* Go to the network address printed in terminal from another device (on the same network) and upload files
