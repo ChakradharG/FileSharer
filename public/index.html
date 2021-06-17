@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style.css">
+	<script defer src="./index.js"></script>
+	<title>FileSharer</title>
+</head>
+<body>
+	<form action="#" method="post" enctype="multipart/form-data">
+	<div class="container fl">
+		<input type="file" name="file_0">
+		<button type="button" class="x" onclick="this.parentElement.remove()">&#10799;</button>
+	</div>
+	<div class="container btns">
+		<button id="add" onclick="addFile()" type="button">Add File</button>
+		<button id="upload">Upload</button>
+	</div>
+</body>
+</html>
