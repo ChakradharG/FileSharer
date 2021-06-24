@@ -1,5 +1,5 @@
 # FileSharer
-A simple NodeJS server to get files from devices in the same network.
+A simple NodeJS server to get files from devices on the same network.
 
 <br>
 
