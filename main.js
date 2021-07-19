@@ -9,9 +9,10 @@ const PORT = 5050;
 const app = express();
 const __dirname = path.resolve();
 app.use(express.static('public'));
+app.use('/outgoing', express.static('outgoing'));
 
 
-app.post('/', (req, res) => {
+app.post('/upload', (req, res) => {
 	const form = formidable.IncomingForm();
 	try {
 		form.parse(req, (err, _, files) => {
@@ -41,6 +42,24 @@ app.post('/', (req, res) => {
 		console.log(error);
 		res.send(error);
 	}
+});
+
+app.get('/files', (req, res) => {
+	fs.readdir(path.join(__dirname, 'outgoing'), (err, files) => {
+		if (err) throw err;
+
+		files = files.filter(file => file !== '.gitkeep').map(encodeURI);
+
+		res.send(JSON.stringify(files));		
+	});
+});
+
+app.get('/upload', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public', 'upload.html'));
+});
+
+app.get('/download', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public', 'download.html'));
 });
 
 (() => {
