@@ -38,20 +38,23 @@ app.post('/upload', (req, res) => {
 		});
 
 		res.send('File(s) uploaded successfully');
-	} catch(error) {
+	} catch (error) {
 		console.log(error);
 		res.send(error);
 	}
 });
 
 app.get('/files', (req, res) => {
-	fs.readdir(path.join(__dirname, 'outgoing'), (err, files) => {
-		if (err) throw err;
+	try {
+		fs.readdir(path.join(__dirname, 'outgoing'), (err, files) => {
+			if (err) throw err;
 
-		files = files.filter(file => file !== '.gitkeep').map(encodeURI);
-
-		res.send(JSON.stringify(files));		
-	});
+			res.send(JSON.stringify(files.filter(file => file !== '.gitkeep').map(encodeURI)));	// Exclude .gitkeep
+		});
+	} catch (error) {
+		console.log(error);
+		res.send(error);
+	}
 });
 
 app.get('/upload', (req, res) => {
