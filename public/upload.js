@@ -2,7 +2,8 @@ const form = document.forms[0];
 let index = 0;
 const addBtn = document.querySelector('#add');
 
-form.addEventListener('submit', (event) => {
+
+form.addEventListener('submit', () => {
 	let elemIndex = 0;
 	while (elemIndex < form.elements.length) {
 		let elem = form.elements[elemIndex];
@@ -22,7 +23,7 @@ function addFile() {
 
 	let fileInput = document.createElement('input');
 	fileInput.type = 'file';
-	fileInput.name = `file_${++index}`	// Incrementing name by 1 (file_0 -> file_1)
+	fileInput.name = `file_${++index}`;	// Incrementing name by 1 (file_0 -> file_1)
 	container.append(fileInput);
 
 	let delButton = document.createElement('button');
