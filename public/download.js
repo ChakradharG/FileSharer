@@ -5,6 +5,10 @@ fetch('files', { method: 'GET' })
 	});
 
 function toHyperLinks(files) {
+	if (files.length === 0) {
+		document.body.innerHTML = '<h3>No files to download</h3>';
+		return;
+	}
 	files.forEach((file) => {
 		let link = document.createElement('a');
 
