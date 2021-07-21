@@ -73,6 +73,10 @@ a {
 	transition: color 0.25s ease, background 0.25s ease;
 }
 
+.message {
+	margin-top: 3rem;
+}
+
 @media screen and (min-width: 600px) {
 	#add, #upload {
 		margin-bottom: 3rem;

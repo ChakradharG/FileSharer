@@ -45,16 +45,14 @@ app.post('/upload', (req, res) => {
 });
 
 app.get('/files', (req, res) => {
-	try {
-		fs.readdir(path.join(__dirname, 'outgoing'), (err, files) => {
-			if (err) throw err;
-
-			res.send(JSON.stringify(files.filter(file => file !== '.gitkeep').map(encodeURI)));	// Exclude .gitkeep
-		});
-	} catch (error) {
-		console.log(error);
-		res.send(error);
-	}
+	fs.readdir(path.join(__dirname, 'outgoing'), (err, files) => {
+		if (err) {
+			console.log(err);
+			res.send(err);
+		} else {
+			res.send(JSON.stringify(files.filter((file) => file !== '.gitkeep').map(encodeURI)));	// Exclude .gitkeep
+		}
+	});
 });
 
 app.get('/upload', (req, res) => {
