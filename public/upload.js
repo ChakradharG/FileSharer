@@ -8,7 +8,7 @@ form.addEventListener('submit', () => {
 	while (elemIndex < form.elements.length) {
 		let elem = form.elements[elemIndex];
 
-		if (elem.tagName === 'INPUT' && elem.type === 'file' && elem.value === '') {	// Remove inputs with no files
+		if (elem.type === 'file' && elem.value === '') {	// Remove inputs with no files
 			elem.parentElement.remove();
 			continue;
 		}
