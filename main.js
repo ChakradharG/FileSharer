@@ -28,10 +28,10 @@ app.post('/upload', (req, res) => {
 				fs.unlinkSync(oldPath);
 			}
 
-			res.status(200).send('<link rel="stylesheet" href="./style.css"><h3>File(s) uploaded successfully</h3>');
+			res.status(200).send('<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./style.css"><h3>File(s) uploaded successfully</h3>');
 		} catch (err) {
 			console.log(err);
-			res.status(500).send('<link rel="stylesheet" href="./style.css"><h3>An error occured</h3><br><h3>Check the server for more details</h3>');
+			res.status(500).send('<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./style.css"><h3>An error occured</h3><br><h3>Check the server for more details</h3>');
 		}
 	});
 });
