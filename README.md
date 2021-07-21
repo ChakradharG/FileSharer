@@ -1,5 +1,5 @@
 # FileSharer
-A simple NodeJS server to get files from devices on the same network.
+A simple NodeJS server to share files with devices on the same network.
 
 <br>
 
@@ -12,4 +12,6 @@ A simple NodeJS server to get files from devices on the same network.
 
 ## How to Use
 * Execute `npm start`
-* Go to the network address printed in terminal from another device (on the same network) and upload files
+* Go to the network address printed in terminal from another device (on the same network) and upload/download files
+* To send files to other devices, copy the desired files into the `outgoing` directory
+* Uploaded files are stored in the `incoming` directory

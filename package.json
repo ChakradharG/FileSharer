@@ -1,7 +1,7 @@
 {
   "name": "filesharer",
   "version": "1.0.0",
-  "description": "Seamlessly share files between devices on same network",
+  "description": "A simple NodeJS server to share files with devices on the same network.",
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
