@@ -7,10 +7,11 @@
 html {
 	font-family: Arial, Helvetica, sans-serif, sans-serif;
 	font-size: 16px;
+	min-height: -webkit-fill-available;
 }
 
 body {
-	background-color: hsl(20, 20%, 3%);
+	background: conic-gradient(at 125% 50%, #b78cf7, #ff7c94, #ffcf0d, #ff7c94, #b78cf7) no-repeat;
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -27,8 +28,7 @@ body {
 .fl {
 	margin: 3rem 0px;
 	border-radius: 20px;
-	background-color: hsla(0, 0%, 100%, 0.3);
-	backdrop-filter: blur(20px);
+	background-color: #ffffff40;
 	width: 30rem;
 }
 
@@ -40,19 +40,14 @@ button, input[type="file"]::file-selector-button {
 	width: 90px;
 	height: 40px;
 	border-radius: 20px;
-	background-color: hsla(0, 0%, 100%, 0.3);
+	background-color: #ffffff40;
 	color: white;
-	backdrop-filter: blur(20px);
 	transition: color 0.25s ease, background 0.25s ease;
-}
-
-input[type="file"]::file-selector-button {
-	background-color: hsla(0, 0%, 39%, 0.3);
 }
 
 button:hover, input[type="file"]::file-selector-button:hover, a:hover {
 	color: black;
-	background-color: hsl(24, 48%, 50%);
+	background-color: #ff7c94;
 }
 
 .x {
@@ -67,9 +62,8 @@ a {
 	text-decoration: none;
 	min-height: 40px;
 	border-radius: 20px;
-	background-color: hsla(0, 0%, 100%, 0.3);
+	background-color: #ffffff4d;
 	color: white;
-	backdrop-filter: blur(20px);
 	transition: color 0.25s ease, background 0.25s ease;
 }
 
