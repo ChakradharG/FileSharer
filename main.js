@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { lookup } from 'dns';
 import { hostname } from 'os';
+import qrcode from 'qrcode';
 
 const PORT = 5050;
 const app = express();
@@ -61,6 +62,13 @@ app.get('/download', (req, res) => {
 			err ? reject(err) : resolve(IP);
 		});
 	});
-})().then((IP) => console.log(`Listening on http://${IP}:${PORT}`));
+})().then((IP) => {
+	console.log(`Listening on http://${IP}:${PORT}`);
+	qrcode.toString(
+		`http://${IP}:${PORT}`,
+		{ type: 'terminal' },
+		(err, qr) => console.log(qr)
+	);
+});
 
 app.listen(PORT);

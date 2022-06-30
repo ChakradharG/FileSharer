@@ -6,6 +6,10 @@
 	<link rel="stylesheet" href="./style.css">
 	<link rel="icon" href="./logo.png">
 	<title>FileSharer</title>
+	<script>
+		const password = 'YOUR_PASSWORD_HERE';
+		if (prompt('Password?') !== password) window.location.replace('about:blank');
+	</script>
 </head>
 <body>
 	<a href="/upload">Upload Files</a>
