@@ -71,4 +71,8 @@ app.get('/download', (req, res) => {
 	);
 });
 
+process.stdin.setRawMode(true);
+process.stdin.resume();
+process.stdin.on('data', () => process.exit(0));
+
 app.listen(PORT);
