@@ -7,6 +7,10 @@
 	<link rel="icon" href="./logo.png">
 	<script defer src="./download.js"></script>
 	<title>FileSharer</title>
+	<script>
+		const password = 'YOUR_PASSWORD_HERE';
+		if (prompt('Password?') !== password) window.location.replace('about:blank');
+	</script>
 </head>
 <body>
 </body>
