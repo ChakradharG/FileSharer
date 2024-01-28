@@ -2,13 +2,13 @@ import express from 'express';
 import formidable from 'formidable';
 import fs from 'fs';
 import path from 'path';
-import { lookup } from 'dns';
-import { hostname } from 'os';
 import qrcode from 'qrcode';
+import { networkInterfaces } from 'os';
 
 const PORT = 5050;
 const app = express();
 const __dirname = path.resolve();
+const interfaces = networkInterfaces();
 app.use(express.static('public'));
 app.use('/outgoing', express.static('outgoing'));
 
@@ -58,9 +58,15 @@ app.get('/download', (req, res) => {
 
 (() => {
 	return new Promise((resolve, reject) => {
-		lookup(hostname(), (err, IP) => {
-			err ? reject(err) : resolve(IP);
-		});
+		const addresses = Object.values(interfaces)
+			.flatMap((iface) => iface)
+			.filter((iface) => iface.family === 'IPv4' && !iface.internal)
+			.map((iface) => iface.address);
+		if (addresses.length === 0) {
+			reject(new Error('No valid IPv4 address found.'));
+		} else {
+			resolve(addresses[0]);
+		}
 	});
 })().then((IP) => {
 	console.log(`Listening on http://${IP}:${PORT}`);
