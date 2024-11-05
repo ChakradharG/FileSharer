@@ -58,7 +58,7 @@ app.get('/download', (req, res) => {
 
 (() => {
 	return new Promise((resolve, reject) => {
-		const addresses = Object.values(interfaces)
+		const addresses = Object.values(interfaces['Wi-Fi'])
 			.flatMap((iface) => iface)
 			.filter((iface) => iface.family === 'IPv4' && !iface.internal)
 			.map((iface) => iface.address);
